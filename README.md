@@ -254,3 +254,5 @@ Error: quantity must be a valid number
 - 工作流会启动 Jetty（8080 端口）并运行 `src/test/run_all_tests.sh`
 - 请确保接口路径、返回内容与用例预期一致（尤其是 `/menu`、`/order`、`/order/{id}`）
 - 若使用Github提交项目，则可自动开启评分流程
+
+test
