@@ -52,7 +52,6 @@ public class OrderCreateServlet extends HttpServlet {
             out.println("Error: quantity must be a valid number");
             return;
         }
-
         int orderId = NEXT_ID.getAndIncrement();
         ORDERS.add(new Order(orderId, customer, food, quantity));
         out.println("Order Created: " + orderId);

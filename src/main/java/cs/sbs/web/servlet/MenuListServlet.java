@@ -36,7 +36,6 @@ public class MenuListServlet extends HttpServlet {
                     .filter(item -> item.getName().toLowerCase().contains(name.toLowerCase()))
                     .collect(Collectors.toList());
         }
-
         out.println("Menu List:");
         for (int i = 0; i < result.size(); i++) {
             MenuItem item = result.get(i);
