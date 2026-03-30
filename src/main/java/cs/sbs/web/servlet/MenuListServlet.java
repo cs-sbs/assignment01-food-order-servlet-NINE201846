@@ -13,8 +13,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@WebServlet("/menu")
 public class MenuListServlet extends HttpServlet {
     private static final List<MenuItem> MENU = new ArrayList<>();
+
     static {
         MENU.add(new MenuItem("Fried Rice", 8));
         MENU.add(new MenuItem("Fried Noodles", 9));
@@ -36,10 +38,15 @@ public class MenuListServlet extends HttpServlet {
                     .filter(item -> item.getName().toLowerCase().contains(name.toLowerCase()))
                     .collect(Collectors.toList());
         }
+
         out.println("Menu List:");
-        for (int i = 0; i < result.size(); i++) {
-            MenuItem item = result.get(i);
-            out.printf("%d. %s - $%.0f%n", i+1, item.getName(), item.getPrice());
+        if (result.isEmpty()) {
+            out.println("No items found.");
+        } else {
+            for (int i = 0; i < result.size(); i++) {
+                MenuItem item = result.get(i);
+                out.printf("%d. %s - $%d%n", i + 1, item.getName(), (int) item.getPrice());
+            }
         }
     }
 }
